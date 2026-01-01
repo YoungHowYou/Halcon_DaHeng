@@ -63,6 +63,7 @@ parameter
   sem_type:           number;
   type_list:          integer;
 
+
 DHGXInitLib<- CGXInitLib[:::]
 short.german
   Laplace Filter.;
@@ -216,7 +217,7 @@ parameter
   multivalue:         false;
 
 
-CGXSetCommandValue<- CGXSetCommandValue[::CameraHandle,strKey:]
+DHGXSetCommandValue<- CGXSetCommandValue[::CameraHandle,strKey:]
 short.german
   Laplace Filter.;
   
@@ -253,3 +254,187 @@ parameter
   multivalue:         false;
   sem_type:           string;
   type_list:          string;
+
+DHGXSetFloatValue<- CGXSetFloatValue[::CameraHandle,strFeatureID,dValue:]
+short.german
+  Set float value.;
+  
+short.english
+  Set float value.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+parameter
+  CameraHandle:       input_control;
+  default_type:       handle;
+  multivalue:         false;
+  sem_type:           handle;
+  type_list:          handle;
+
+parameter
+  strFeatureID:       input_control;
+  default_type:       string;
+  multivalue:         false;
+  sem_type:           string;
+  type_list:          string;
+
+parameter
+  dValue:             input_control;
+  default_type:       real;
+  multivalue:         false;
+  sem_type:           number;
+  type_list:          real;
+
+DHGXSetEnumValue<- CGXSetEnumValue[::CameraHandle,strFeatureID,nValue:]
+short.german
+  Set enum value.;
+  
+short.english
+  Set enum value.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+parameter
+  CameraHandle:       input_control;
+  default_type:       handle;
+  multivalue:         false;
+  sem_type:           handle;
+  type_list:          handle;
+
+parameter
+  strFeatureID:       input_control;
+  default_type:       string;
+  multivalue:         false;
+  sem_type:           string;
+  type_list:          string;
+
+parameter
+  nValue:             input_control;
+  default_type:       integer;
+  multivalue:         false;
+  sem_type:           number;
+  type_list:          integer;
+
+DHGXSetBoolValue<- CGXSetBoolValue[::CameraHandle,strFeatureID,bValue:]
+short.german
+  Set bool value.;
+  
+short.english
+  Set bool value.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+parameter
+  CameraHandle:       input_control;
+  default_type:       handle;
+  multivalue:         false;
+  sem_type:           handle;
+  type_list:          handle;
+
+parameter
+  strFeatureID:       input_control;
+  default_type:       string;
+  multivalue:         false;
+  sem_type:           string;
+  type_list:          string;
+
+parameter
+  bValue:             input_control;
+  default_type:       integer;
+  multivalue:         false;
+  sem_type:           number;
+  type_list:          integer;
+
+DHGXSetIntValue<- CGXSetIntValue[::CameraHandle,strFeatureID,nValue:]
+short.german
+  Set int value.;
+  
+short.english
+  Set int value.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+parameter
+  CameraHandle:       input_control;
+  default_type:       handle;
+  multivalue:         false;
+  sem_type:           handle;
+  type_list:          handle;
+
+parameter
+  strFeatureID:       input_control;
+  default_type:       string;
+  multivalue:         false;
+  sem_type:           string;
+  type_list:          string;
+
+parameter
+  nValue:             input_control;
+  default_type:       integer;
+  multivalue:         false;
+  sem_type:           number;
+  type_list:          integer;

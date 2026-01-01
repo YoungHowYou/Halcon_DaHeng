@@ -51,12 +51,64 @@ Hproc_handle PreCallUser(int proc_index_local)
 
 
 
-#ifdef CGXSetCommandValue
-# error An existing macro name conflicts with CGXSetCommandValue
+#ifdef DHGXSetIntValue
+# error An existing macro name conflicts with DHGXSetIntValue
 #endif
-HUserExport void HalconCpp::CGXSetCommandValue(const HTuple& CameraHandle, const HTuple& strKey)
+HUserExport void HalconCpp::DHGXSetIntValue(const HTuple& CameraHandle, const HTuple& strFeatureID, const HTuple& nValue)
 {
   Hproc_handle proc = PreCallUser(0);
+  HalconAPI::Store(proc,0,CameraHandle);
+  HalconAPI::StoreEnc(proc,1,strFeatureID);
+  HalconAPI::Store(proc,2,nValue);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef DHGXSetBoolValue
+# error An existing macro name conflicts with DHGXSetBoolValue
+#endif
+HUserExport void HalconCpp::DHGXSetBoolValue(const HTuple& CameraHandle, const HTuple& strFeatureID, const HTuple& bValue)
+{
+  Hproc_handle proc = PreCallUser(1);
+  HalconAPI::Store(proc,0,CameraHandle);
+  HalconAPI::StoreEnc(proc,1,strFeatureID);
+  HalconAPI::Store(proc,2,bValue);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef DHGXSetEnumValue
+# error An existing macro name conflicts with DHGXSetEnumValue
+#endif
+HUserExport void HalconCpp::DHGXSetEnumValue(const HTuple& CameraHandle, const HTuple& strFeatureID, const HTuple& nValue)
+{
+  Hproc_handle proc = PreCallUser(2);
+  HalconAPI::Store(proc,0,CameraHandle);
+  HalconAPI::StoreEnc(proc,1,strFeatureID);
+  HalconAPI::Store(proc,2,nValue);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef DHGXSetFloatValue
+# error An existing macro name conflicts with DHGXSetFloatValue
+#endif
+HUserExport void HalconCpp::DHGXSetFloatValue(const HTuple& CameraHandle, const HTuple& strFeatureID, const HTuple& dValue)
+{
+  Hproc_handle proc = PreCallUser(3);
+  HalconAPI::Store(proc,0,CameraHandle);
+  HalconAPI::StoreEnc(proc,1,strFeatureID);
+  HalconAPI::Store(proc,2,dValue);
+  HalconAPI::CallProcedure(proc);
+  HalconAPI::PostCall(proc);
+}
+
+#ifdef DHGXSetCommandValue
+# error An existing macro name conflicts with DHGXSetCommandValue
+#endif
+HUserExport void HalconCpp::DHGXSetCommandValue(const HTuple& CameraHandle, const HTuple& strKey)
+{
+  Hproc_handle proc = PreCallUser(4);
   HalconAPI::Store(proc,0,CameraHandle);
   HalconAPI::StoreEnc(proc,1,strKey);
   HalconAPI::CallProcedure(proc);
@@ -68,7 +120,7 @@ HUserExport void HalconCpp::CGXSetCommandValue(const HTuple& CameraHandle, const
 #endif
 HUserExport void HalconCpp::DHGXOPenCameraByID(const HTuple& Name, const HTuple& TimeSharingFlicker, const HTuple& CameraType, const HTuple& QueueHandle, HTuple* CameraHandle)
 {
-  Hproc_handle proc = PreCallUser(1);
+  Hproc_handle proc = PreCallUser(5);
   HalconAPI::StoreEnc(proc,0,Name);
   HalconAPI::Store(proc,1,TimeSharingFlicker);
   HalconAPI::Store(proc,2,CameraType);
@@ -84,7 +136,7 @@ HUserExport void HalconCpp::DHGXOPenCameraByID(const HTuple& Name, const HTuple&
 #endif
 HUserExport void HalconCpp::DHGXCloseLib()
 {
-  Hproc_handle proc = PreCallUser(2);
+  Hproc_handle proc = PreCallUser(6);
   HalconAPI::CallProcedure(proc);
   HalconAPI::PostCall(proc);
 }
@@ -94,7 +146,7 @@ HUserExport void HalconCpp::DHGXCloseLib()
 #endif
 HUserExport void HalconCpp::DHGXGetLastError(HTuple* msg, HTuple* errcode)
 {
-  Hproc_handle proc = PreCallUser(3);
+  Hproc_handle proc = PreCallUser(7);
   HalconAPI::InitOutp(proc,0);
   HalconAPI::InitOutp(proc,1);
   HalconAPI::CallProcedure(proc);
@@ -119,7 +171,7 @@ HUserExport void HalconCpp::DHGXGetLastError(HTuple* msg, HTuple* errcode)
 #endif
 HUserExport void HalconCpp::DHGXInitLib()
 {
-  Hproc_handle proc = PreCallUser(4);
+  Hproc_handle proc = PreCallUser(8);
   HalconAPI::CallProcedure(proc);
   HalconAPI::PostCall(proc);
 }
@@ -129,7 +181,7 @@ HUserExport void HalconCpp::DHGXInitLib()
 #endif
 HUserExport void HalconCpp::DHGXGetLogType(HTuple* ui32LogType)
 {
-  Hproc_handle proc = PreCallUser(5);
+  Hproc_handle proc = PreCallUser(9);
   HalconAPI::InitOutp(proc,0);
   HalconAPI::CallProcedure(proc);
   HalconAPI::Load(proc,0,ui32LogType);
@@ -141,7 +193,7 @@ HUserExport void HalconCpp::DHGXGetLogType(HTuple* ui32LogType)
 #endif
 HUserExport void HalconCpp::DHGXSetLogType(const HTuple& ui32LogType)
 {
-  Hproc_handle proc = PreCallUser(6);
+  Hproc_handle proc = PreCallUser(10);
   HalconAPI::Store(proc,0,ui32LogType);
   HalconAPI::CallProcedure(proc);
   HalconAPI::PostCall(proc);

@@ -171,3 +171,70 @@ Herror HGXSetCommandValue(Hproc_handle proc_handle)
     re = GXSetCommandValue(handle_data->相机句柄, 参数名称.par.s);
     Return_Herror return H_MSG_TRUE;
 }
+
+Herror HGXSetFloatValue(Hproc_handle proc_handle)
+{
+    HUserHandleData *handle_data;
+    Hcpar 参数名称, 参数值;
+    HAllocStringMem(proc_handle, 64);
+    HGetCElemH1(proc_handle, 1, &HandleTypeUser, &handle_data);
+
+    HGetSPar(proc_handle, 2, STRING_PAR, &参数名称, 1);
+    HGetSPar(proc_handle, 3, DOUBLE_PAR, &参数值, 1);
+
+    int re = GXSetFloatValue(handle_data->相机句柄, 参数名称.par.s, 参数值.par.d);
+    Return_Herror return H_MSG_TRUE;
+}
+Herror HGXSetEnumValue(Hproc_handle proc_handle)
+{
+    HUserHandleData *handle_data;
+
+    Hcpar 参数名称, 参数值;
+    HAllocStringMem(proc_handle, 64);
+    HGetCElemH1(proc_handle, 1, &HandleTypeUser, &handle_data);
+
+    HGetSPar(proc_handle, 2, STRING_PAR, &参数名称, 1);
+    HGetSPar(proc_handle, 3, LONG_PAR, &参数值, 1);
+
+    int re = GXSetEnumValue(handle_data->相机句柄, 参数名称.par.s, 参数值.par.l);
+    Return_Herror return H_MSG_TRUE;
+}
+Herror HGXSetBoolValue(Hproc_handle proc_handle)
+{
+    HUserHandleData *handle_data;
+
+    Hcpar 参数名称, 参数值;
+    HAllocStringMem(proc_handle, 64);
+    HGetCElemH1(proc_handle, 1, &HandleTypeUser, &handle_data);
+
+    HGetSPar(proc_handle, 2, STRING_PAR, &参数名称, 1);
+    HGetSPar(proc_handle, 3, LONG_PAR, &参数值, 1);
+
+    if (参数值.par.l == 0)
+    {
+        int re = GXSetBoolValue(handle_data->相机句柄, 参数名称.par.s, 0);
+        Return_Herror return H_MSG_TRUE;
+    }
+    else if (参数值.par.l == 1)
+    {
+        int re = GXSetBoolValue(handle_data->相机句柄, 参数名称.par.s, 1);
+        Return_Herror return H_MSG_TRUE;
+    }
+    else
+    {
+        return __LINE__;
+    }
+}
+Herror HGXSetIntValue(Hproc_handle proc_handle)
+{
+    HUserHandleData *handle_data;
+
+    Hcpar 参数名称, 参数值;
+    HAllocStringMem(proc_handle, 64);
+    HGetCElemH1(proc_handle, 1, &HandleTypeUser, &handle_data);
+
+    HGetSPar(proc_handle, 2, STRING_PAR, &参数名称, 1);
+    HGetSPar(proc_handle, 3, LONG_PAR, &参数值, 1);
+    int re = GXSetIntValue(handle_data->相机句柄, 参数名称.par.s, 参数值.par.l);
+    Return_Herror return H_MSG_TRUE;
+}

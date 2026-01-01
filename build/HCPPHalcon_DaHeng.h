@@ -29,8 +29,20 @@ namespace HalconCpp
    * Operators                                                               *
    ***************************************************************************/
 
+// Set int value.
+HUserExport void DHGXSetIntValue(const HTuple& CameraHandle, const HTuple& strFeatureID, const HTuple& nValue);
+
+// Set bool value.
+HUserExport void DHGXSetBoolValue(const HTuple& CameraHandle, const HTuple& strFeatureID, const HTuple& bValue);
+
+// Set enum value.
+HUserExport void DHGXSetEnumValue(const HTuple& CameraHandle, const HTuple& strFeatureID, const HTuple& nValue);
+
+// Set float value.
+HUserExport void DHGXSetFloatValue(const HTuple& CameraHandle, const HTuple& strFeatureID, const HTuple& dValue);
+
 // Laplace Filter.
-HUserExport void CGXSetCommandValue(const HTuple& CameraHandle, const HTuple& strKey);
+HUserExport void DHGXSetCommandValue(const HTuple& CameraHandle, const HTuple& strKey);
 
 // Laplace Filter.
 HUserExport void DHGXOPenCameraByID(const HTuple& Name, const HTuple& TimeSharingFlicker, const HTuple& CameraType, const HTuple& QueueHandle, HTuple* CameraHandle);

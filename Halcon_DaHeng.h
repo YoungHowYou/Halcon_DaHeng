@@ -13,10 +13,10 @@ EXPORTS_API Herror HGXGetLastError(Hproc_handle proc_handle);
 
 EXPORTS_API Herror HGXOPenCameraByID(Hproc_handle proc_handle);
 EXPORTS_API Herror HGXSetCommandValue(Hproc_handle proc_handle);
-EXPORTS_API Herror HGXSetFloatValue(Hproc_handle proc_handle);
-EXPORTS_API Herror HGXSetEnumValue(Hproc_handle proc_handle);
-EXPORTS_API Herror HGXSetBoolValue(Hproc_handle proc_handle);
-EXPORTS_API Herror HGXSetIntValue(Hproc_handle proc_handle);
+
+
+
+
 
 #pragma endregion
 
@@ -25,3 +25,5 @@ EXPORTS_API Herror HGXSetIntValue(Hproc_handle proc_handle);
 #ifdef __cplusplus
 }
 #endif 
+
+

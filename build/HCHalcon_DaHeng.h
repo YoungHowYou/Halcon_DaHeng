@@ -23,8 +23,16 @@
 extern "C" {
 #endif
 
-HUserExport Herror T_CGXSetCommandValue(const Htuple CameraHandle, const Htuple strKey);
-HUserExport Herror CGXSetCommandValue(Hlong CameraHandle, const char *strKey);
+HUserExport Herror T_DHGXSetIntValue(const Htuple CameraHandle, const Htuple strFeatureID, const Htuple nValue);
+HUserExport Herror DHGXSetIntValue(Hlong CameraHandle, const char *strFeatureID, Hlong nValue);
+HUserExport Herror T_DHGXSetBoolValue(const Htuple CameraHandle, const Htuple strFeatureID, const Htuple bValue);
+HUserExport Herror DHGXSetBoolValue(Hlong CameraHandle, const char *strFeatureID, Hlong bValue);
+HUserExport Herror T_DHGXSetEnumValue(const Htuple CameraHandle, const Htuple strFeatureID, const Htuple nValue);
+HUserExport Herror DHGXSetEnumValue(Hlong CameraHandle, const char *strFeatureID, Hlong nValue);
+HUserExport Herror T_DHGXSetFloatValue(const Htuple CameraHandle, const Htuple strFeatureID, const Htuple dValue);
+HUserExport Herror DHGXSetFloatValue(Hlong CameraHandle, const char *strFeatureID, double dValue);
+HUserExport Herror T_DHGXSetCommandValue(const Htuple CameraHandle, const Htuple strKey);
+HUserExport Herror DHGXSetCommandValue(Hlong CameraHandle, const char *strKey);
 HUserExport Herror T_DHGXOPenCameraByID(const Htuple Name, const Htuple TimeSharingFlicker, const Htuple CameraType, const Htuple QueueHandle, Htuple *CameraHandle);
 HUserExport Herror DHGXOPenCameraByID(const char *Name, Hlong TimeSharingFlicker, Hlong CameraType, Hlong QueueHandle, Hlong *CameraHandle);
 HUserExport Herror T_DHGXCloseLib(void);

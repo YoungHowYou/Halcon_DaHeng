@@ -22,6 +22,10 @@
 #else
 #  include "HlibXpi.h"
 #endif
+Herror CGXSetIntValue(Hproc_handle proc_id);
+Herror CGXSetBoolValue(Hproc_handle proc_id);
+Herror CGXSetEnumValue(Hproc_handle proc_id);
+Herror CGXSetFloatValue(Hproc_handle proc_id);
 Herror CGXSetCommandValue(Hproc_handle proc_id);
 Herror CGXOPenCameraByID(Hproc_handle proc_id);
 Herror CGXCloseLib(Hproc_handle proc_id);
@@ -34,14 +38,14 @@ Herror CGXSetLogType(Hproc_handle proc_id);
 
 static Herror HSystem0(int32_t xid)
 {
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_ParameterType,0,"hs"));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_ParameterType,0,"hsi"));
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumInpObjPar,0));
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumOutpObjPar,0));
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumInpCtrlPar,2));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumInpCtrlPar,3));
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_NumOutpCtrlPar,0));
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_LogicalName,"CGXSetCommandValue"));
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_PhysicalName,"CGXSetCommandValue"));
-  HCkP(HXPkgSetOpInfo(xid,0,HOIID_procedure,CGXSetCommandValue));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_LogicalName,"DHGXSetIntValue"));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_PhysicalName,"CGXSetIntValue"));
+  HCkP(HXPkgSetOpInfo(xid,0,HOIID_procedure,CGXSetIntValue));
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_module,1ul));
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
 #ifndef HC_NO_COMPUTE_DEVICES
@@ -53,15 +57,14 @@ static Herror HSystem0(int32_t xid)
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_parallelMinCosts,0));
   HCkP(HXPkgSetOpInfo(xid,0,HOIID_parallelRegionsplit,0));
 
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_ParameterType,0,"siih"));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_ParameterType,1,"h"));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_ParameterType,0,"hsi"));
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumInpObjPar,0));
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumOutpObjPar,0));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumInpCtrlPar,4));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumOutpCtrlPar,1));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_LogicalName,"DHGXOPenCameraByID"));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_PhysicalName,"CGXOPenCameraByID"));
-  HCkP(HXPkgSetOpInfo(xid,1,HOIID_procedure,CGXOPenCameraByID));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumInpCtrlPar,3));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_NumOutpCtrlPar,0));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_LogicalName,"DHGXSetBoolValue"));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_PhysicalName,"CGXSetBoolValue"));
+  HCkP(HXPkgSetOpInfo(xid,1,HOIID_procedure,CGXSetBoolValue));
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_module,1ul));
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
 #ifndef HC_NO_COMPUTE_DEVICES
@@ -73,13 +76,14 @@ static Herror HSystem0(int32_t xid)
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_parallelMinCosts,0));
   HCkP(HXPkgSetOpInfo(xid,1,HOIID_parallelRegionsplit,0));
 
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_ParameterType,0,"hsi"));
   HCkP(HXPkgSetOpInfo(xid,2,HOIID_NumInpObjPar,0));
   HCkP(HXPkgSetOpInfo(xid,2,HOIID_NumOutpObjPar,0));
-  HCkP(HXPkgSetOpInfo(xid,2,HOIID_NumInpCtrlPar,0));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_NumInpCtrlPar,3));
   HCkP(HXPkgSetOpInfo(xid,2,HOIID_NumOutpCtrlPar,0));
-  HCkP(HXPkgSetOpInfo(xid,2,HOIID_LogicalName,"DHGXCloseLib"));
-  HCkP(HXPkgSetOpInfo(xid,2,HOIID_PhysicalName,"CGXCloseLib"));
-  HCkP(HXPkgSetOpInfo(xid,2,HOIID_procedure,CGXCloseLib));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_LogicalName,"DHGXSetEnumValue"));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_PhysicalName,"CGXSetEnumValue"));
+  HCkP(HXPkgSetOpInfo(xid,2,HOIID_procedure,CGXSetEnumValue));
   HCkP(HXPkgSetOpInfo(xid,2,HOIID_module,1ul));
   HCkP(HXPkgSetOpInfo(xid,2,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
 #ifndef HC_NO_COMPUTE_DEVICES
@@ -91,14 +95,14 @@ static Herror HSystem0(int32_t xid)
   HCkP(HXPkgSetOpInfo(xid,2,HOIID_parallelMinCosts,0));
   HCkP(HXPkgSetOpInfo(xid,2,HOIID_parallelRegionsplit,0));
 
-  HCkP(HXPkgSetOpInfo(xid,3,HOIID_ParameterType,1,"si"));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_ParameterType,0,"hsf"));
   HCkP(HXPkgSetOpInfo(xid,3,HOIID_NumInpObjPar,0));
   HCkP(HXPkgSetOpInfo(xid,3,HOIID_NumOutpObjPar,0));
-  HCkP(HXPkgSetOpInfo(xid,3,HOIID_NumInpCtrlPar,0));
-  HCkP(HXPkgSetOpInfo(xid,3,HOIID_NumOutpCtrlPar,2));
-  HCkP(HXPkgSetOpInfo(xid,3,HOIID_LogicalName,"DHGXGetLastError"));
-  HCkP(HXPkgSetOpInfo(xid,3,HOIID_PhysicalName,"CGXGetLastError"));
-  HCkP(HXPkgSetOpInfo(xid,3,HOIID_procedure,CGXGetLastError));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_NumInpCtrlPar,3));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_NumOutpCtrlPar,0));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_LogicalName,"DHGXSetFloatValue"));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_PhysicalName,"CGXSetFloatValue"));
+  HCkP(HXPkgSetOpInfo(xid,3,HOIID_procedure,CGXSetFloatValue));
   HCkP(HXPkgSetOpInfo(xid,3,HOIID_module,1ul));
   HCkP(HXPkgSetOpInfo(xid,3,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
 #ifndef HC_NO_COMPUTE_DEVICES
@@ -110,13 +114,14 @@ static Herror HSystem0(int32_t xid)
   HCkP(HXPkgSetOpInfo(xid,3,HOIID_parallelMinCosts,0));
   HCkP(HXPkgSetOpInfo(xid,3,HOIID_parallelRegionsplit,0));
 
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_ParameterType,0,"hs"));
   HCkP(HXPkgSetOpInfo(xid,4,HOIID_NumInpObjPar,0));
   HCkP(HXPkgSetOpInfo(xid,4,HOIID_NumOutpObjPar,0));
-  HCkP(HXPkgSetOpInfo(xid,4,HOIID_NumInpCtrlPar,0));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_NumInpCtrlPar,2));
   HCkP(HXPkgSetOpInfo(xid,4,HOIID_NumOutpCtrlPar,0));
-  HCkP(HXPkgSetOpInfo(xid,4,HOIID_LogicalName,"DHGXInitLib"));
-  HCkP(HXPkgSetOpInfo(xid,4,HOIID_PhysicalName,"CGXInitLib"));
-  HCkP(HXPkgSetOpInfo(xid,4,HOIID_procedure,CGXInitLib));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_LogicalName,"DHGXSetCommandValue"));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_PhysicalName,"CGXSetCommandValue"));
+  HCkP(HXPkgSetOpInfo(xid,4,HOIID_procedure,CGXSetCommandValue));
   HCkP(HXPkgSetOpInfo(xid,4,HOIID_module,1ul));
   HCkP(HXPkgSetOpInfo(xid,4,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
 #ifndef HC_NO_COMPUTE_DEVICES
@@ -128,14 +133,15 @@ static Herror HSystem0(int32_t xid)
   HCkP(HXPkgSetOpInfo(xid,4,HOIID_parallelMinCosts,0));
   HCkP(HXPkgSetOpInfo(xid,4,HOIID_parallelRegionsplit,0));
 
-  HCkP(HXPkgSetOpInfo(xid,5,HOIID_ParameterType,1,"I"));
+  HCkP(HXPkgSetOpInfo(xid,5,HOIID_ParameterType,0,"siih"));
+  HCkP(HXPkgSetOpInfo(xid,5,HOIID_ParameterType,1,"h"));
   HCkP(HXPkgSetOpInfo(xid,5,HOIID_NumInpObjPar,0));
   HCkP(HXPkgSetOpInfo(xid,5,HOIID_NumOutpObjPar,0));
-  HCkP(HXPkgSetOpInfo(xid,5,HOIID_NumInpCtrlPar,0));
+  HCkP(HXPkgSetOpInfo(xid,5,HOIID_NumInpCtrlPar,4));
   HCkP(HXPkgSetOpInfo(xid,5,HOIID_NumOutpCtrlPar,1));
-  HCkP(HXPkgSetOpInfo(xid,5,HOIID_LogicalName,"DHGXGetLogType"));
-  HCkP(HXPkgSetOpInfo(xid,5,HOIID_PhysicalName,"CGXGetLogType"));
-  HCkP(HXPkgSetOpInfo(xid,5,HOIID_procedure,CGXGetLogType));
+  HCkP(HXPkgSetOpInfo(xid,5,HOIID_LogicalName,"DHGXOPenCameraByID"));
+  HCkP(HXPkgSetOpInfo(xid,5,HOIID_PhysicalName,"CGXOPenCameraByID"));
+  HCkP(HXPkgSetOpInfo(xid,5,HOIID_procedure,CGXOPenCameraByID));
   HCkP(HXPkgSetOpInfo(xid,5,HOIID_module,1ul));
   HCkP(HXPkgSetOpInfo(xid,5,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
 #ifndef HC_NO_COMPUTE_DEVICES
@@ -147,14 +153,13 @@ static Herror HSystem0(int32_t xid)
   HCkP(HXPkgSetOpInfo(xid,5,HOIID_parallelMinCosts,0));
   HCkP(HXPkgSetOpInfo(xid,5,HOIID_parallelRegionsplit,0));
 
-  HCkP(HXPkgSetOpInfo(xid,6,HOIID_ParameterType,0,"i"));
   HCkP(HXPkgSetOpInfo(xid,6,HOIID_NumInpObjPar,0));
   HCkP(HXPkgSetOpInfo(xid,6,HOIID_NumOutpObjPar,0));
-  HCkP(HXPkgSetOpInfo(xid,6,HOIID_NumInpCtrlPar,1));
+  HCkP(HXPkgSetOpInfo(xid,6,HOIID_NumInpCtrlPar,0));
   HCkP(HXPkgSetOpInfo(xid,6,HOIID_NumOutpCtrlPar,0));
-  HCkP(HXPkgSetOpInfo(xid,6,HOIID_LogicalName,"DHGXSetLogType"));
-  HCkP(HXPkgSetOpInfo(xid,6,HOIID_PhysicalName,"CGXSetLogType"));
-  HCkP(HXPkgSetOpInfo(xid,6,HOIID_procedure,CGXSetLogType));
+  HCkP(HXPkgSetOpInfo(xid,6,HOIID_LogicalName,"DHGXCloseLib"));
+  HCkP(HXPkgSetOpInfo(xid,6,HOIID_PhysicalName,"CGXCloseLib"));
+  HCkP(HXPkgSetOpInfo(xid,6,HOIID_procedure,CGXCloseLib));
   HCkP(HXPkgSetOpInfo(xid,6,HOIID_module,1ul));
   HCkP(HXPkgSetOpInfo(xid,6,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
 #ifndef HC_NO_COMPUTE_DEVICES
@@ -165,6 +170,81 @@ static Herror HSystem0(int32_t xid)
   HCkP(HXPkgSetOpInfo(xid,6,HOIID_numCost,0));
   HCkP(HXPkgSetOpInfo(xid,6,HOIID_parallelMinCosts,0));
   HCkP(HXPkgSetOpInfo(xid,6,HOIID_parallelRegionsplit,0));
+
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_ParameterType,1,"si"));
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_NumInpObjPar,0));
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_NumOutpObjPar,0));
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_NumInpCtrlPar,0));
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_NumOutpCtrlPar,2));
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_LogicalName,"DHGXGetLastError"));
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_PhysicalName,"CGXGetLastError"));
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_procedure,CGXGetLastError));
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_module,1ul));
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
+#ifndef HC_NO_COMPUTE_DEVICES
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_compute_device,0));
+#endif
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_parallelization,0));
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_aopCost,NULL));
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_numCost,0));
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_parallelMinCosts,0));
+  HCkP(HXPkgSetOpInfo(xid,7,HOIID_parallelRegionsplit,0));
+
+  HCkP(HXPkgSetOpInfo(xid,8,HOIID_NumInpObjPar,0));
+  HCkP(HXPkgSetOpInfo(xid,8,HOIID_NumOutpObjPar,0));
+  HCkP(HXPkgSetOpInfo(xid,8,HOIID_NumInpCtrlPar,0));
+  HCkP(HXPkgSetOpInfo(xid,8,HOIID_NumOutpCtrlPar,0));
+  HCkP(HXPkgSetOpInfo(xid,8,HOIID_LogicalName,"DHGXInitLib"));
+  HCkP(HXPkgSetOpInfo(xid,8,HOIID_PhysicalName,"CGXInitLib"));
+  HCkP(HXPkgSetOpInfo(xid,8,HOIID_procedure,CGXInitLib));
+  HCkP(HXPkgSetOpInfo(xid,8,HOIID_module,1ul));
+  HCkP(HXPkgSetOpInfo(xid,8,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
+#ifndef HC_NO_COMPUTE_DEVICES
+  HCkP(HXPkgSetOpInfo(xid,8,HOIID_compute_device,0));
+#endif
+  HCkP(HXPkgSetOpInfo(xid,8,HOIID_parallelization,0));
+  HCkP(HXPkgSetOpInfo(xid,8,HOIID_aopCost,NULL));
+  HCkP(HXPkgSetOpInfo(xid,8,HOIID_numCost,0));
+  HCkP(HXPkgSetOpInfo(xid,8,HOIID_parallelMinCosts,0));
+  HCkP(HXPkgSetOpInfo(xid,8,HOIID_parallelRegionsplit,0));
+
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_ParameterType,1,"I"));
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_NumInpObjPar,0));
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_NumOutpObjPar,0));
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_NumInpCtrlPar,0));
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_NumOutpCtrlPar,1));
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_LogicalName,"DHGXGetLogType"));
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_PhysicalName,"CGXGetLogType"));
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_procedure,CGXGetLogType));
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_module,1ul));
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
+#ifndef HC_NO_COMPUTE_DEVICES
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_compute_device,0));
+#endif
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_parallelization,0));
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_aopCost,NULL));
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_numCost,0));
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_parallelMinCosts,0));
+  HCkP(HXPkgSetOpInfo(xid,9,HOIID_parallelRegionsplit,0));
+
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_ParameterType,0,"i"));
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_NumInpObjPar,0));
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_NumOutpObjPar,0));
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_NumInpCtrlPar,1));
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_NumOutpCtrlPar,0));
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_LogicalName,"DHGXSetLogType"));
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_PhysicalName,"CGXSetLogType"));
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_procedure,CGXSetLogType));
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_module,1ul));
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_process_excl_local,HAG_PAR_NO_RESTRICT));
+#ifndef HC_NO_COMPUTE_DEVICES
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_compute_device,0));
+#endif
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_parallelization,0));
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_aopCost,NULL));
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_numCost,0));
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_parallelMinCosts,0));
+  HCkP(HXPkgSetOpInfo(xid,10,HOIID_parallelRegionsplit,0));
 
 return H_MSG_OK;
 }
@@ -184,7 +264,7 @@ HUserExport Herror HXPkgInit(int32_t xpkg_id)
 {
 
   int32_t osid;
-  HCkP(HXPkgOpenId(xpkg_id, HALCON_VERSION_CODE,H_OPERATOR_INFO_DERIVATE, 7, &osid));
+  HCkP(HXPkgOpenId(xpkg_id, HALCON_VERSION_CODE,H_OPERATOR_INFO_DERIVATE, 11, &osid));
   m_offset = osid;
 
   HCkP(HSystem0(xpkg_id));

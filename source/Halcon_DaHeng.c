@@ -24,7 +24,23 @@ Herror CGXOPenCameraByID(Hproc_handle proc_handle)
 {
     return HGXOPenCameraByID(proc_handle);  
 }
- Herror CGXSetCommandValue(Hproc_handle proc_handle)
+Herror CGXSetCommandValue(Hproc_handle proc_handle)
 {
     return HGXSetCommandValue(proc_handle); 
+}
+Herror CGXSetFloatValue(Hproc_handle proc_handle)
+{
+    return HGXSetFloatValue(proc_handle); 
+}
+Herror CGXSetEnumValue(Hproc_handle proc_handle)
+{
+    return HGXSetEnumValue(proc_handle); 
+}
+Herror CGXSetBoolValue(Hproc_handle proc_handle)
+{
+    return HGXSetBoolValue(proc_handle); 
+}
+Herror CGXSetIntValue(Hproc_handle proc_handle)
+{
+    return HGXSetIntValue(proc_handle); 
 }

@@ -39,12 +39,76 @@ Herror HcPreCallUser(int proc_index_local, Hproc_handle *proc_handle)
   return HcPreCall(offset + proc_index_local, proc_handle);
 }
 
-HUserExport Herror T_CGXSetCommandValue(const Htuple CameraHandle, const Htuple strKey)
+HUserExport Herror T_DHGXSetIntValue(const Htuple CameraHandle, const Htuple strFeatureID, const Htuple nValue)
 {
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
   err = HcPreCallUser(0,&ph);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&CameraHandle);
+  if (err == H_MSG_OK) err = HcStoreICTEnc(ph,1,&strFeatureID);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,2,&nValue);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_DHGXSetBoolValue(const Htuple CameraHandle, const Htuple strFeatureID, const Htuple bValue)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(1,&ph);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&CameraHandle);
+  if (err == H_MSG_OK) err = HcStoreICTEnc(ph,1,&strFeatureID);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,2,&bValue);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_DHGXSetEnumValue(const Htuple CameraHandle, const Htuple strFeatureID, const Htuple nValue)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(2,&ph);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&CameraHandle);
+  if (err == H_MSG_OK) err = HcStoreICTEnc(ph,1,&strFeatureID);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,2,&nValue);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_DHGXSetFloatValue(const Htuple CameraHandle, const Htuple strFeatureID, const Htuple dValue)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(3,&ph);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,0,&CameraHandle);
+  if (err == H_MSG_OK) err = HcStoreICTEnc(ph,1,&strFeatureID);
+  if (err == H_MSG_OK) err = HcStoreICT(ph,2,&dValue);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror T_DHGXSetCommandValue(const Htuple CameraHandle, const Htuple strKey)
+{
+  Hproc_handle ph;
+  Herror err = H_MSG_OK;
+
+  err = HcPreCallUser(4,&ph);
   if (err == H_MSG_OK) err = HcStoreICT(ph,0,&CameraHandle);
   if (err == H_MSG_OK) err = HcStoreICTEnc(ph,1,&strKey);
   if (err == H_MSG_OK)
@@ -59,7 +123,7 @@ HUserExport Herror T_DHGXOPenCameraByID(const Htuple Name, const Htuple TimeShar
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
-  err = HcPreCallUser(1,&ph);
+  err = HcPreCallUser(5,&ph);
   if (err == H_MSG_OK) err = HcStoreICTEnc(ph,0,&Name);
   if (err == H_MSG_OK) err = HcStoreICT(ph,1,&TimeSharingFlicker);
   if (err == H_MSG_OK) err = HcStoreICT(ph,2,&CameraType);
@@ -78,7 +142,7 @@ HUserExport Herror T_DHGXCloseLib(void)
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
-  err = HcPreCallUser(2,&ph);
+  err = HcPreCallUser(6,&ph);
   if (err == H_MSG_OK)
   {
     err = HcCall(ph);
@@ -91,7 +155,7 @@ HUserExport Herror T_DHGXGetLastError(Htuple *msg, Htuple *errcode)
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
-  err = HcPreCallUser(3,&ph);
+  err = HcPreCallUser(7,&ph);
   if (err == H_MSG_OK)
   {
     HcInitOCT(ph,0,msg);
@@ -108,7 +172,7 @@ HUserExport Herror T_DHGXInitLib(void)
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
-  err = HcPreCallUser(4,&ph);
+  err = HcPreCallUser(8,&ph);
   if (err == H_MSG_OK)
   {
     err = HcCall(ph);
@@ -121,7 +185,7 @@ HUserExport Herror T_DHGXGetLogType(Htuple *ui32LogType)
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
-  err = HcPreCallUser(5,&ph);
+  err = HcPreCallUser(9,&ph);
   if (err == H_MSG_OK)
   {
     HcInitOCT(ph,0,ui32LogType);
@@ -136,7 +200,7 @@ HUserExport Herror T_DHGXSetLogType(const Htuple ui32LogType)
   Hproc_handle ph;
   Herror err = H_MSG_OK;
 
-  err = HcPreCallUser(6,&ph);
+  err = HcPreCallUser(10,&ph);
   if (err == H_MSG_OK) err = HcStoreICT(ph,0,&ui32LogType);
   if (err == H_MSG_OK)
   {
@@ -145,11 +209,71 @@ HUserExport Herror T_DHGXSetLogType(const Htuple ui32LogType)
   return HcPostCall(ph,err);
 }
 
-HUserExport Herror CGXSetCommandValue(Hlong CameraHandle, const char *strKey)
+HUserExport Herror DHGXSetIntValue(Hlong CameraHandle, const char *strFeatureID, Hlong nValue)
 {
   Hproc_handle ph;
   Herror err;
   err = HcPreCallUser(0,&ph);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,CameraHandle);
+  if (err == H_MSG_OK) HcStoreICSEnc(ph,1,strFeatureID);
+  if (err == H_MSG_OK) HcStoreICL(ph,2,nValue);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror DHGXSetBoolValue(Hlong CameraHandle, const char *strFeatureID, Hlong bValue)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(1,&ph);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,CameraHandle);
+  if (err == H_MSG_OK) HcStoreICSEnc(ph,1,strFeatureID);
+  if (err == H_MSG_OK) HcStoreICL(ph,2,bValue);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror DHGXSetEnumValue(Hlong CameraHandle, const char *strFeatureID, Hlong nValue)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(2,&ph);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,CameraHandle);
+  if (err == H_MSG_OK) HcStoreICSEnc(ph,1,strFeatureID);
+  if (err == H_MSG_OK) HcStoreICL(ph,2,nValue);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror DHGXSetFloatValue(Hlong CameraHandle, const char *strFeatureID, double dValue)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(3,&ph);
+  if (err == H_MSG_OK) HcStoreICL(ph,0,CameraHandle);
+  if (err == H_MSG_OK) HcStoreICSEnc(ph,1,strFeatureID);
+  if (err == H_MSG_OK) HcStoreICD(ph,2,dValue);
+  if (err == H_MSG_OK)
+  {
+    err = HcCall(ph);
+  }
+  return HcPostCall(ph,err);
+}
+
+HUserExport Herror DHGXSetCommandValue(Hlong CameraHandle, const char *strKey)
+{
+  Hproc_handle ph;
+  Herror err;
+  err = HcPreCallUser(4,&ph);
   if (err == H_MSG_OK) HcStoreICL(ph,0,CameraHandle);
   if (err == H_MSG_OK) HcStoreICSEnc(ph,1,strKey);
   if (err == H_MSG_OK)
@@ -163,7 +287,7 @@ HUserExport Herror DHGXOPenCameraByID(const char *Name, Hlong TimeSharingFlicker
 {
   Hproc_handle ph;
   Herror err;
-  err = HcPreCallUser(1,&ph);
+  err = HcPreCallUser(5,&ph);
   if (err == H_MSG_OK) HcStoreICSEnc(ph,0,Name);
   if (err == H_MSG_OK) HcStoreICL(ph,1,TimeSharingFlicker);
   if (err == H_MSG_OK) HcStoreICL(ph,2,CameraType);
@@ -181,7 +305,7 @@ HUserExport Herror DHGXCloseLib(void)
 {
   Hproc_handle ph;
   Herror err;
-  err = HcPreCallUser(2,&ph);
+  err = HcPreCallUser(6,&ph);
   if (err == H_MSG_OK)
   {
     err = HcCall(ph);
@@ -193,7 +317,7 @@ HUserExport Herror DHGXGetLastError(char *msg, Hlong *errcode)
 {
   Hproc_handle ph;
   Herror err;
-  err = HcPreCallUser(3,&ph);
+  err = HcPreCallUser(7,&ph);
   if (err == H_MSG_OK)
   {
     HcInitOCS(ph,0);
@@ -209,7 +333,7 @@ HUserExport Herror DHGXInitLib(void)
 {
   Hproc_handle ph;
   Herror err;
-  err = HcPreCallUser(4,&ph);
+  err = HcPreCallUser(8,&ph);
   if (err == H_MSG_OK)
   {
     err = HcCall(ph);
@@ -221,7 +345,7 @@ HUserExport Herror DHGXSetLogType(Hlong ui32LogType)
 {
   Hproc_handle ph;
   Herror err;
-  err = HcPreCallUser(6,&ph);
+  err = HcPreCallUser(10,&ph);
   if (err == H_MSG_OK) HcStoreICL(ph,0,ui32LogType);
   if (err == H_MSG_OK)
   {
