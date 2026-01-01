@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>DHGXInitLib()</l>
+<l>DHGXGetLogType (LogType)</l>
+<l>DHGXSetLogType (1)</l>
+<l>DHGXGetLastError (msg, code)</l>
+<l>create_message_queue (QueueHandle)</l>
+<c>*    GX_TL_TYPE_UNKNOWN  = 0,							///&lt; \Chinese 未知类型设备				\English Unknown type device</c>
+<c>*    GX_TL_TYPE_USB      = 1,							///&lt; \Chinese USB2.0					\English USB2.0</c>
+<c>*    GX_TL_TYPE_GEV      = 2,							///&lt; \Chinese GEV						\English GEV</c>
+<c>*    GX_TL_TYPE_U3V      = 4,							///&lt; \Chinese U3V						\English U3V</c>
+<c>*    GX_TL_TYPE_CXP      = 8,							///&lt; \Chinese CXP						\English CXP</c>
+<c></c>
+<l>DHGXOPenCameraByID ('B', 1, 2, QueueHandle, CameraHandle)</l>
+<l>DHGXCloseLib()</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

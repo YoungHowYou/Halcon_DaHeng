@@ -1,0 +1,255 @@
+DHGXSetLogType<- CGXSetLogType[::ui32LogType:]
+short.german
+  Laplace Filter.;
+  
+short.english
+  Laplace Filter.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+parameter
+  ui32LogType:        input_control;
+  default_type:       integer;
+  multivalue:         false;
+  sem_type:           number;
+  type_list:          integer;
+
+
+DHGXGetLogType<- CGXGetLogType[:::ui32LogType]
+short.german
+  Laplace Filter.;
+  
+short.english
+  Laplace Filter.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+parameter
+  ui32LogType:        output_control;
+  default_type:       integer;
+  multivalue:         true;
+  sem_type:           number;
+  type_list:          integer;
+
+DHGXInitLib<- CGXInitLib[:::]
+short.german
+  Laplace Filter.;
+  
+short.english
+  Laplace Filter.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+DHGXGetLastError<- CGXGetLastError[:::msg,errcode]
+short.german
+  Laplace Filter.;
+  
+short.english
+  Laplace Filter.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+parameter
+  msg:                output_control;
+  default_type:       string;
+  multivalue:         false;
+  sem_type:           string;
+  type_list:          string;
+
+parameter
+  errcode:            output_control;
+  default_type:       integer;
+  multivalue:         false;
+  sem_type:           number;
+  type_list:          integer;
+
+DHGXCloseLib<- CGXCloseLib[:::]
+short.german
+  Laplace Filter.;
+  
+short.english
+  Laplace Filter.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+
+
+DHGXOPenCameraByID<- CGXOPenCameraByID[::Name,TimeSharingFlicker,CameraType,QueueHandle:CameraHandle]
+short.german
+  Laplace Filter.;
+  
+short.english
+  Laplace Filter.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+
+parameter
+  Name:              input_control;
+  default_type:       string;
+  multivalue:         false;
+  sem_type:           string;
+  type_list:          string;
+
+parameter
+  TimeSharingFlicker: input_control;
+  default_type:       integer;
+  multivalue:         false;
+  sem_type:           number;
+  type_list:          integer;
+
+parameter
+  CameraType:         input_control;
+  default_type:       integer;
+  multivalue:         false;
+  sem_type:           number;
+  type_list:          integer;
+
+parameter
+  QueueHandle:        input_control;
+  default_type:       handle;
+  multivalue:         false;
+  sem_type:           handle;
+  type_list:          handle;
+
+
+parameter
+  CameraHandle:       output_control;
+  sem_type:           handle;
+  type_list:          handle;
+  default_type:       handle;
+  multivalue:         false;
+
+
+CGXSetCommandValue<- CGXSetCommandValue[::CameraHandle,strKey:]
+short.german
+  Laplace Filter.;
+  
+short.english
+  Laplace Filter.;
+
+module
+  foundation;
+
+chapter.german
+  BenutzerErweiterungen;
+
+chapter.english
+  UserExtensions;
+
+keywords.english
+  UserExtensions;
+
+parallelization
+  process_exclusively: false;
+  process_locally:     false;
+  process_mutual:      false;
+  method:              none;
+parameter
+  CameraHandle:       input_control;
+  default_type:       handle;
+  multivalue:         false;
+  sem_type:           handle;
+  type_list:          handle;
+
+parameter
+  strKey:             input_control;
+  default_type:       string;
+  multivalue:         false;
+  sem_type:           string;
+  type_list:          string;

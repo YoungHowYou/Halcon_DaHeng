@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_DaHeng\build\HHalcon_DaHeng.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_DaHeng\source\Halcon_DaHeng.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_DaHeng\source\Halcon_DaHeng.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_DaHeng\include\Halcon_DaHeng.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_DaHeng\def\Halcon_DaHeng.def">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_DaHeng\build\CMakeFiles\c42f6c4848fe0b6bafc59a15b5780cc0\HHalcon_DaHeng.c.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_DaHeng\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{4FC8E014-EFCF-3359-904E-A0762CAB976C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{28FE6222-EEE6-360B-9B06-E077ADE6BCE4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{40CB92D1-3DE8-3AD1-8706-2CBE8BB1F8C1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

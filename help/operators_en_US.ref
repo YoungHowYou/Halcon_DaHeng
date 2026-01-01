@@ -1,0 +1,95 @@
+CGXSetCommandValue(CameraHandle,strKey)
+short.ascii=Laplace Filter.
+keywords=UserExtensions
+module=0 Foundation
+parameter=CameraHandle
+parameter_class=input_control
+type_list=handle
+default_type=handle
+sem_type=handle
+multivalue=false
+parameter=strKey
+parameter_class=input_control
+type_list=string
+default_type=string
+sem_type=string
+multivalue=false
+DHGXOPenCameraByID(Name,TimeSharingFlicker,CameraType,QueueHandle,CameraHandle)
+short.ascii=Laplace Filter.
+keywords=UserExtensions
+module=0 Foundation
+parameter=Name
+parameter_class=input_control
+type_list=string
+default_type=string
+sem_type=string
+multivalue=false
+parameter=TimeSharingFlicker
+parameter_class=input_control
+type_list=integer
+default_type=integer
+sem_type=number
+multivalue=false
+parameter=CameraType
+parameter_class=input_control
+type_list=integer
+default_type=integer
+sem_type=number
+multivalue=false
+parameter=QueueHandle
+parameter_class=input_control
+type_list=handle
+default_type=handle
+sem_type=handle
+multivalue=false
+parameter=CameraHandle
+parameter_class=output_control
+type_list=handle
+default_type=handle
+sem_type=handle
+multivalue=false
+DHGXCloseLib()
+short.ascii=Laplace Filter.
+keywords=UserExtensions
+module=0 Foundation
+DHGXGetLastError(msg,errcode)
+short.ascii=Laplace Filter.
+keywords=UserExtensions
+module=0 Foundation
+parameter=msg
+parameter_class=output_control
+type_list=string
+default_type=string
+sem_type=string
+multivalue=false
+parameter=errcode
+parameter_class=output_control
+type_list=integer
+default_type=integer
+sem_type=number
+multivalue=false
+DHGXInitLib()
+short.ascii=Laplace Filter.
+keywords=UserExtensions
+module=0 Foundation
+DHGXGetLogType(ui32LogType)
+short.ascii=Laplace Filter.
+keywords=UserExtensions
+module=0 Foundation
+parameter=ui32LogType
+parameter_class=output_control
+type_list=integer
+default_type=integer
+sem_type=number
+multivalue=true
+DHGXSetLogType(ui32LogType)
+short.ascii=Laplace Filter.
+keywords=UserExtensions
+module=0 Foundation
+parameter=ui32LogType
+parameter_class=input_control
+type_list=integer
+default_type=integer
+sem_type=number
+multivalue=false
+

@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include "Halcon_DaHeng.h"
+Herror CGXInitLib(Hproc_handle proc_handle)
+{
+    return HGXInitLib(proc_handle);
+}
+Herror CGXCloseLib(Hproc_handle proc_handle)
+{
+    return HGXCloseLib(proc_handle);
+}
+Herror CGXSetLogType(Hproc_handle proc_handle)
+{
+    return HGXSetLogType(proc_handle);
+}
+Herror CGXGetLogType(Hproc_handle proc_handle)
+{
+    return HGXGetLogType(proc_handle);
+}
+Herror CGXGetLastError(Hproc_handle proc_handle)
+{
+    return HGXGetLastError(proc_handle);
+}
+Herror CGXOPenCameraByID(Hproc_handle proc_handle)
+{
+    return HGXOPenCameraByID(proc_handle);  
+}
+ Herror CGXSetCommandValue(Hproc_handle proc_handle)
+{
+    return HGXSetCommandValue(proc_handle); 
+}
