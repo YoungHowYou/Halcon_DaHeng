@@ -222,7 +222,7 @@ Herror HGXSetBoolValue(Hproc_handle proc_handle)
     }
     else
     {
-        return __LINE__;
+         return 10000 * H__LINE__ ;
     }
 }
 Herror HGXSetIntValue(Hproc_handle proc_handle)
