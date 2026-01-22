@@ -1,0 +1,10 @@
+^D:\DESKTOP\SOURCE\HALCON_EXTENSION\HALCON_DAHENG\BUILD\CMAKEFILES\6FE46EA22B29FBF81B4C1F2DF6E93AD4\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Desktop/Source/Halcon_Extension/Halcon_DaHeng -BD:/Desktop/Source/Halcon_Extension/Halcon_DaHeng/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Desktop/Source/Halcon_Extension/Halcon_DaHeng/build/Halcon_DaHeng.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

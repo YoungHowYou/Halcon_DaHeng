@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_DaHeng\build\HCPPHalcon_DaHeng.cpp">
+    <ClCompile Include="D:\Desktop\Source\Halcon_Extension\Halcon_DaHeng\build\HCPPHalcon_DaHeng.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_DaHeng\build\HCPPHalcon_DaHeng.h">
+    <ClInclude Include="D:\Desktop\Source\Halcon_Extension\Halcon_DaHeng\build\HCPPHalcon_DaHeng.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_DaHeng\build\CMakeFiles\c42f6c4848fe0b6bafc59a15b5780cc0\HCPPHalcon_DaHeng.cpp.rule">
+    <CustomBuild Include="D:\Desktop\Source\Halcon_Extension\Halcon_DaHeng\build\CMakeFiles\720eac7236087021a7177dbe6ca47cc2\HCPPHalcon_DaHeng.cpp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_DaHeng\CMakeLists.txt" />
+    <CustomBuild Include="D:\Desktop\Source\Halcon_Extension\Halcon_DaHeng\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{4FC8E014-EFCF-3359-904E-A0762CAB976C}</UniqueIdentifier>
+      <UniqueIdentifier>{141253ED-31C0-3509-BD6A-76AD2EFD932A}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{28FE6222-EEE6-360B-9B06-E077ADE6BCE4}</UniqueIdentifier>
+      <UniqueIdentifier>{0222DA0A-E2AE-365F-8CE0-E64BA4A35CDF}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{40CB92D1-3DE8-3AD1-8706-2CBE8BB1F8C1}</UniqueIdentifier>
+      <UniqueIdentifier>{EA1FF721-A315-34A6-BD78-B6FD252BB730}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

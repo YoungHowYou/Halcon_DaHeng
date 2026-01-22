@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\young\Desktop\Source\Halcon_Extension\Halcon_DaHeng\build\CMakeFiles\41786dbf3a66851f31b403cf82022d3c\generate.stamp.rule">
+    <CustomBuild Include="D:\Desktop\Source\Halcon_Extension\Halcon_DaHeng\build\CMakeFiles\6fe46ea22b29fbf81b4c1f2df6e93ad4\generate.stamp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{4FC8E014-EFCF-3359-904E-A0762CAB976C}</UniqueIdentifier>
+      <UniqueIdentifier>{141253ED-31C0-3509-BD6A-76AD2EFD932A}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

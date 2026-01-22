@@ -1,0 +1,30 @@
+^D:\DESKTOP\SOURCE\HALCON_EXTENSION\HALCON_DAHENG\BUILD\CMAKEFILES\318F6FD1A295C3703E582296B9268976\REFERENCE.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Desktop/Source/Halcon_Extension/Halcon_DaHeng/build/doc/html/reference
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E chdir D:/Desktop/Source/Halcon_Extension/Halcon_DaHeng/build/doc/html/reference C:/Users/young/AppData/Local/Programs/MVTec/HALCON-24.11-Progress-Steady/bin/x64-win64/hcomp.exe -u -R -pHalcon_DaHeng -len_US D:\Desktop\Source\Halcon_Extension\Halcon_DaHeng\def\Halcon_DaHeng.def
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\DESKTOP\SOURCE\HALCON_EXTENSION\HALCON_DAHENG\BUILD\CMAKEFILES\6FE46EA22B29FBF81B4C1F2DF6E93AD4\HALCON_DAHENG_HTML.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\DESKTOP\SOURCE\HALCON_EXTENSION\HALCON_DAHENG\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Desktop/Source/Halcon_Extension/Halcon_DaHeng -BD:/Desktop/Source/Halcon_Extension/Halcon_DaHeng/build --check-stamp-file D:/Desktop/Source/Halcon_Extension/Halcon_DaHeng/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
