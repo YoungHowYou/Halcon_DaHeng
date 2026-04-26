@@ -104,6 +104,7 @@ static void GX_STDC OnFrameCallbackFun(GX_FRAME_CALLBACK_PARAM *pFrame)
         // 对图像进行某些操作
         HObject ho_Image;
         HTuple hv_MessageHandle;
+        HTuple hv_MessageHandleRemove;
         MyContext *ctx = static_cast<MyContext *>(pFrame->pUserParam);
         if (pFrame->nPixelFormat == GX_PIXEL_FORMAT_MONO8)
         {
@@ -118,7 +119,17 @@ static void GX_STDC OnFrameCallbackFun(GX_FRAME_CALLBACK_PARAM *pFrame)
         SetMessageTuple(hv_MessageHandle, "nFrameNum", (__int64)(pFrame->nFrameID));
         // GX_CHUNK_DATA_HANDLE
         SetMessageTuple(hv_MessageHandle, "nDeviceID", ctx->相机用户名);
-        EnqueueMessage((ctx->相机采集队列), hv_MessageHandle, HTuple(), HTuple());
+        try
+        {
+          EnqueueMessage((ctx->相机采集队列), hv_MessageHandle, HTuple(), HTuple());
+        }
+         catch (HException &HDevExpDefaultException)
+        {
+            DequeueMessage((ctx->相机采集队列), "timeout", "infinite", &hv_MessageHandleRemove);
+            EnqueueMessage((ctx->相机采集队列), hv_MessageHandle, HTuple(), HTuple());
+            ClearMessage(hv_MessageHandleRemove);
+
+        }
         ClearMessage(hv_MessageHandle);
     }
     return;
