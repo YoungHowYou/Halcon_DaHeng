@@ -238,3 +238,71 @@ Herror HGXSetIntValue(Hproc_handle proc_handle)
     int re = GXSetIntValue(handle_data->相机句柄, 参数名称.par.s, 参数值.par.l);
     Return_Herror return H_MSG_TRUE;
 }
+
+Herror HGXGetFloatValue(Hproc_handle proc_handle)
+{
+    HUserHandleData *handle_data;
+    Hcpar 参数名称;
+    HAllocStringMem(proc_handle, 64);
+    HGetCElemH1(proc_handle, 1, &HandleTypeUser, &handle_data);
+    HGetSPar(proc_handle, 2, STRING_PAR, &参数名称, 1);
+
+    GX_FLOAT_VALUE stFloatValue;
+    int re = GXGetFloatValue(handle_data->相机句柄, 参数名称.par.s, &stFloatValue);
+    Return_Herror
+
+    double dValue = stFloatValue.dCurValue;
+    HPutElem(proc_handle, 1, &dValue, 1, DOUBLE_PAR);
+    return H_MSG_TRUE;
+}
+
+Herror HGXGetEnumValue(Hproc_handle proc_handle)
+{
+    HUserHandleData *handle_data;
+    Hcpar 参数名称;
+    HAllocStringMem(proc_handle, 64);
+    HGetCElemH1(proc_handle, 1, &HandleTypeUser, &handle_data);
+    HGetSPar(proc_handle, 2, STRING_PAR, &参数名称, 1);
+
+    GX_ENUM_VALUE stEnumValue;
+    int re = GXGetEnumValue(handle_data->相机句柄, 参数名称.par.s, &stEnumValue);
+    Return_Herror
+
+    INT4_8 nValue = (INT4_8)stEnumValue.stCurValue.nCurValue;
+    HPutElem(proc_handle, 1, &nValue, 1, LONG_PAR);
+    return H_MSG_TRUE;
+}
+
+Herror HGXGetBoolValue(Hproc_handle proc_handle)
+{
+    HUserHandleData *handle_data;
+    Hcpar 参数名称;
+    HAllocStringMem(proc_handle, 64);
+    HGetCElemH1(proc_handle, 1, &HandleTypeUser, &handle_data);
+    HGetSPar(proc_handle, 2, STRING_PAR, &参数名称, 1);
+
+    bool bValue;
+    int re = GXGetBoolValue(handle_data->相机句柄, 参数名称.par.s, &bValue);
+    Return_Herror
+
+    INT4_8 nValue = bValue ? 1 : 0;
+    HPutElem(proc_handle, 1, &nValue, 1, LONG_PAR);
+    return H_MSG_TRUE;
+}
+
+Herror HGXGetIntValue(Hproc_handle proc_handle)
+{
+    HUserHandleData *handle_data;
+    Hcpar 参数名称;
+    HAllocStringMem(proc_handle, 64);
+    HGetCElemH1(proc_handle, 1, &HandleTypeUser, &handle_data);
+    HGetSPar(proc_handle, 2, STRING_PAR, &参数名称, 1);
+
+    GX_INT_VALUE stIntValue;
+    int re = GXGetIntValue(handle_data->相机句柄, 参数名称.par.s, &stIntValue);
+    Return_Herror
+
+    INT4_8 nValue = (INT4_8)stIntValue.nCurValue;
+    HPutElem(proc_handle, 1, &nValue, 1, LONG_PAR);
+    return H_MSG_TRUE;
+}

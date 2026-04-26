@@ -44,3 +44,19 @@ Herror CGXSetIntValue(Hproc_handle proc_handle)
 {
     return HGXSetIntValue(proc_handle); 
 }
+Herror CGXGetFloatValue(Hproc_handle proc_handle)
+{
+    return HGXGetFloatValue(proc_handle); 
+}
+Herror CGXGetEnumValue(Hproc_handle proc_handle)
+{
+    return HGXGetEnumValue(proc_handle); 
+}
+Herror CGXGetBoolValue(Hproc_handle proc_handle)
+{
+    return HGXGetBoolValue(proc_handle); 
+}
+Herror CGXGetIntValue(Hproc_handle proc_handle)
+{
+    return HGXGetIntValue(proc_handle); 
+}

@@ -18,6 +18,11 @@ EXPORTS_API Herror HGXSetEnumValue(Hproc_handle proc_handle);
 EXPORTS_API Herror HGXSetBoolValue(Hproc_handle proc_handle);
 EXPORTS_API Herror HGXSetIntValue(Hproc_handle proc_handle);
 
+EXPORTS_API Herror HGXGetFloatValue(Hproc_handle proc_handle);
+EXPORTS_API Herror HGXGetEnumValue(Hproc_handle proc_handle);
+EXPORTS_API Herror HGXGetBoolValue(Hproc_handle proc_handle);
+EXPORTS_API Herror HGXGetIntValue(Hproc_handle proc_handle);
+
 #pragma endregion
 
 

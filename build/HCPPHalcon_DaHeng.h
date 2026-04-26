@@ -29,6 +29,18 @@ namespace HalconCpp
    * Operators                                                               *
    ***************************************************************************/
 
+// Get int value.
+HUserExport void DHGXGetIntValue(const HTuple& CameraHandle, const HTuple& strFeatureID, HTuple* nValue);
+
+// Get bool value.
+HUserExport void DHGXGetBoolValue(const HTuple& CameraHandle, const HTuple& strFeatureID, HTuple* bValue);
+
+// Get enum value.
+HUserExport void DHGXGetEnumValue(const HTuple& CameraHandle, const HTuple& strFeatureID, HTuple* nValue);
+
+// Get float value.
+HUserExport void DHGXGetFloatValue(const HTuple& CameraHandle, const HTuple& strFeatureID, HTuple* dValue);
+
 // Set int value.
 HUserExport void DHGXSetIntValue(const HTuple& CameraHandle, const HTuple& strFeatureID, const HTuple& nValue);
 

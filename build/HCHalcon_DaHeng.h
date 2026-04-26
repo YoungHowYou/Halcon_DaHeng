@@ -23,6 +23,14 @@
 extern "C" {
 #endif
 
+HUserExport Herror T_DHGXGetIntValue(const Htuple CameraHandle, const Htuple strFeatureID, Htuple *nValue);
+HUserExport Herror DHGXGetIntValue(Hlong CameraHandle, const char *strFeatureID, Hlong *nValue);
+HUserExport Herror T_DHGXGetBoolValue(const Htuple CameraHandle, const Htuple strFeatureID, Htuple *bValue);
+HUserExport Herror DHGXGetBoolValue(Hlong CameraHandle, const char *strFeatureID, Hlong *bValue);
+HUserExport Herror T_DHGXGetEnumValue(const Htuple CameraHandle, const Htuple strFeatureID, Htuple *nValue);
+HUserExport Herror DHGXGetEnumValue(Hlong CameraHandle, const char *strFeatureID, Hlong *nValue);
+HUserExport Herror T_DHGXGetFloatValue(const Htuple CameraHandle, const Htuple strFeatureID, Htuple *dValue);
+HUserExport Herror DHGXGetFloatValue(Hlong CameraHandle, const char *strFeatureID, double *dValue);
 HUserExport Herror T_DHGXSetIntValue(const Htuple CameraHandle, const Htuple strFeatureID, const Htuple nValue);
 HUserExport Herror DHGXSetIntValue(Hlong CameraHandle, const char *strFeatureID, Hlong nValue);
 HUserExport Herror T_DHGXSetBoolValue(const Htuple CameraHandle, const Htuple strFeatureID, const Htuple bValue);
