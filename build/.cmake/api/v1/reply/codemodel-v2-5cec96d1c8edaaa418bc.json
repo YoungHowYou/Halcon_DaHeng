@@ -1,0 +1,106 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-c96b48a849b2ce5f94a2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Halcon_DaHeng",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_DaHeng::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_DaHeng-Debug-674ef76fad2347e3b048.json",
+					"name" : "Halcon_DaHeng",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_DaHeng_help::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_DaHeng_help-Debug-2e8dba1d9043f6b491d9.json",
+					"name" : "Halcon_DaHeng_help",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_DaHeng_help_en_US::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_DaHeng_help_en_US-Debug-541dc94d80b37157b314.json",
+					"name" : "Halcon_DaHeng_help_en_US",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_DaHeng_html::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_DaHeng_html-Debug-c2ba9a6bc7e24280de16.json",
+					"name" : "Halcon_DaHeng_html",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_DaHengcint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_DaHengcint-Debug-02fd424643b49b659bec.json",
+					"name" : "Halcon_DaHengcint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Halcon_DaHengcppint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Halcon_DaHengcppint-Debug-096036389952de488217.json",
+					"name" : "Halcon_DaHengcppint",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_DaHeng/build",
+		"source" : "/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_DaHeng"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

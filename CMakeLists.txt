@@ -5,7 +5,12 @@
 option(HALCON_XL "Use HALCON XL" OFF)
 # Option for enabling .NET support. This will require a more recent version
 # of CMake to work.
-option(HALCON_DOTNET "Build .NET support" ON)
+# .NET / CSharp support is only meaningful on Windows; default OFF elsewhere.
+if(WIN32)
+  option(HALCON_DOTNET "Build .NET support" ON)
+else()
+  option(HALCON_DOTNET "Build .NET support" OFF)
+endif()
 # If the HALCON_DOTNET option is selected, check if this version of CMake
 # has the required CSharp support. Note that the Visual Studio 2010 or later
 # generator has to be used.
@@ -13,7 +18,7 @@ if(HALCON_DOTNET)
   cmake_minimum_required(VERSION 4.1.1)
   set(_CSHARP CSharp)
 else()
-  cmake_minimum_required(VERSION 4.1.1)
+  cmake_minimum_required(VERSION 3.20)
 endif()
 # When using CMake 3.9 or newer, do not let RPATH affect the install_name on
 # macOS.
@@ -74,8 +79,31 @@ HALCON_AddExtensionPackage(Halcon_DaHeng
 set(HALCON_ROOT $ENV{HALCONROOT})   # 转成 CMake 变量，后面用着方便
 # Halcon 头文件目录
 set(HALCON_INCLUDE_DIR ${HALCON_ROOT}/include/halconcpp)#HALCON_INCLUDE_DIR变量是${HALCON_ROOT}/include的路径
-# Halcon 的 lib 目录（根据编译器自动选 x64-win64 vs x86-win32）
-set(HALCON_LIB_DIR ${HALCON_ROOT}/lib/x64-win64)#
+
+# 平台相关的 HALCON 与大恒 (DaHeng) SDK 库路径
+if(WIN32)
+    set(HALCON_LIB_DIR ${HALCON_ROOT}/lib/x64-win64)
+    set(HALCON_CPP_LIB ${HALCON_LIB_DIR}/halconcpp.lib)
+    set(DAHENG_INC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rd/daheng/inc)
+    set(DAHENG_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rd/daheng/lib/x64)
+    set(DAHENG_LIBS
+        ${DAHENG_LIB_DIR}/GxIAPI.lib
+        ${DAHENG_LIB_DIR}/DxImageProc.lib
+    )
+elseif(UNIX AND NOT APPLE)
+    set(HALCON_LIB_DIR ${HALCON_ROOT}/lib/x64-linux)
+    set(HALCON_CPP_LIB ${HALCON_LIB_DIR}/libhalconcpp.so)
+    # Linux 大恒 SDK 头文件与 Windows 略有差异（如 GX_FRAME_CALLBACK_PARAM 字段）
+    set(DAHENG_INC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rd/daheng/inc_linux)
+    set(DAHENG_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rd/daheng/lib/x86_64)
+    # Linux 大恒 SDK 仅提供 libgxiapi.so，无 DxImageProc（源码中未实际使用）
+    set(DAHENG_LIBS
+        ${DAHENG_LIB_DIR}/libgxiapi.so
+    )
+else()
+    message(FATAL_ERROR "Unsupported platform for Halcon_DaHeng extension")
+endif()
+
 file(GLOB_RECURSE PROJECT_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
 target_sources(${ProjectName} PRIVATE ${PROJECT_HEADERS})
 # 1. 收集 .def 文件
@@ -88,20 +116,18 @@ set_source_files_properties(${DEF_FILES} PROPERTIES
 )
 
 
-target_include_directories(${ProjectName} 
+target_include_directories(${ProjectName}
     PUBLIC
         $<BUILD_INTERFACE:${HALCON_INCLUDE_DIR}>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         #往后增加3方库的头文件目录
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/3rd/daheng/inc>
+        $<BUILD_INTERFACE:${DAHENG_INC_DIR}>
 
 
 )
-target_link_libraries(${ProjectName} 
-    ${HALCON_LIB_DIR}/halconcpp.lib
+target_link_libraries(${ProjectName}
+    ${HALCON_CPP_LIB}
     #往后增加3方库的lib文件
-    ${CMAKE_CURRENT_SOURCE_DIR}/3rd/daheng/lib/x64/GxIAPI.lib
-    ${CMAKE_CURRENT_SOURCE_DIR}/3rd/daheng/lib/x64/DxImageProc.lib
-
+    ${DAHENG_LIBS}
 )
 

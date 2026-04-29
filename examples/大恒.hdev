@@ -8,6 +8,7 @@
 <l>DHGXSetLogType (1)</l>
 <l>DHGXGetLastError (msg, code)</l>
 <l>create_message_queue (QueueHandle)</l>
+<l>set_message_queue_param (QueueHandle, 'max_message_num', 5)</l>
 <c>*    GX_TL_TYPE_UNKNOWN  = 0,							///&lt; \Chinese 未知类型设备				\English Unknown type device</c>
 <c>*    GX_TL_TYPE_USB      = 1,							///&lt; \Chinese USB2.0					\English USB2.0</c>
 <c>*    GX_TL_TYPE_GEV      = 2,							///&lt; \Chinese GEV						\English GEV</c>
@@ -15,6 +16,21 @@
 <c>*    GX_TL_TYPE_CXP      = 8,							///&lt; \Chinese CXP						\English CXP</c>
 <c></c>
 <l>DHGXOPenCameraByID ('B', 1, 2, QueueHandle, CameraHandle)</l>
+<l>DHGXSetCommandValue (CameraHandle, 'AcquisitionStart')</l>
+<l>while(1)</l>
+<l>    try</l>
+<c>        </c>
+<l>        dequeue_message (QueueHandle, 'timeout', 1, MessageHandle)</l>
+<l>        get_message_obj (ObjectData, MessageHandle, 'image')  </l>
+<l>    catch (Exception)</l>
+<l>    endtry</l>
+<c> </c>
+<l>endwhile</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
 <l>DHGXCloseLib()</l>
 <c></c>
 </body>

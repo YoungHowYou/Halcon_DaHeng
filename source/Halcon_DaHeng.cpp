@@ -2,7 +2,25 @@
 #include "Halcon_DaHeng.h"
 #include "HalconCpp.h"
 #include "GxIAPI.h"
+#include <cstdint>
+#include <cstring>
+#include <cerrno>
 using namespace HalconCpp;
+
+#if !defined(_WIN32) && !defined(_WIN64)
+typedef int64_t __int64;
+static inline int strcpy_s(char *dst, size_t dst_size, const char *src)
+{
+    if (!dst || !src || dst_size == 0) return EINVAL;
+    size_t n = strlen(src);
+    if (n >= dst_size) { dst[0] = '\0'; return ERANGE; }
+    memcpy(dst, src, n + 1);
+    return 0;
+}
+template <size_t N>
+static inline int strcpy_s(char (&dst)[N], const char *src) { return strcpy_s(dst, N, src); }
+#endif
+
 #define H_GXCamera_TAG 0xC0FFEE80
 #define H_GXCamera_SEM_TYPE "GXCamera"
 #define Return_Herror                  \
@@ -125,9 +143,9 @@ static void GX_STDC OnFrameCallbackFun(GX_FRAME_CALLBACK_PARAM *pFrame)
         }
          catch (HException &HDevExpDefaultException)
         {
-            DequeueMessage((ctx->相机采集队列), "timeout", "infinite", &hv_MessageHandleRemove);
-            EnqueueMessage((ctx->相机采集队列), hv_MessageHandle, HTuple(), HTuple());
-            ClearMessage(hv_MessageHandleRemove);
+            //DequeueMessage((ctx->相机采集队列), "timeout", "infinite", &hv_MessageHandleRemove);
+            //EnqueueMessage((ctx->相机采集队列), hv_MessageHandle, HTuple(), HTuple());
+            //ClearMessage(hv_MessageHandleRemove);
 
         }
         ClearMessage(hv_MessageHandle);
@@ -138,14 +156,14 @@ Herror HGXOPenCameraByID(Hproc_handle proc_handle)
 {
 
     Hcpar 相机用户名, 分时频闪数, 设备类型;
-    Hcpar *相机采集队列容器;
+    const Hcpar *相机采集队列容器;
     INT4_8 参数个数; // 参数个数
     HAllocStringMem(proc_handle, 64);
     HGetSPar(proc_handle, 1, STRING_PAR, &相机用户名, 1);
     HGetSPar(proc_handle, 2, LONG_PAR, &分时频闪数, 1);
     HGetSPar(proc_handle, 3, LONG_PAR, &设备类型, 1);
     HGetPPar(proc_handle, 4, &相机采集队列容器, &参数个数);
-    HTuple 相机采集队列(相机采集队列容器, 1);
+    HTuple 相机采集队列(const_cast<Hcpar *>(相机采集队列容器), 1);
 
     uint32_t ui32DeviceNum = 0;
     GXUpdateAllDeviceListEx(设备类型.par.l, &ui32DeviceNum, 1000);
