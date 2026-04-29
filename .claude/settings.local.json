@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ldconfig -p)",
+      "Read(//opt/**)",
+      "Read(//usr/local/**)",
+      "Read(//usr/lib/**)",
+      "Bash(dpkg -L galaxy)"
+    ]
+  }
+}

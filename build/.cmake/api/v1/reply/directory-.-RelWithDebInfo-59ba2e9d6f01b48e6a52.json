@@ -8,7 +8,7 @@
 		],
 		"files" : 
 		[
-			"/home/njsc/MVTec/HALCON-24.11-Progress-Steady/examples/cmake/UseHALCON.cmake",
+			"C:/Users/younghowyou/AppData/Roaming/MVTec/HALCON-24.11-Progress-Steady/examples/cmake/UseHALCON.cmake",
 			"CMakeLists.txt"
 		],
 		"nodes" : 
@@ -37,10 +37,15 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 480,
+				"line" : 473,
 				"parent" : 1
 			}
 		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
 	},
 	"installers" : 
 	[
@@ -75,25 +80,51 @@
 		{
 			"backtrace" : 4,
 			"component" : "Unspecified",
-			"destination" : "Halcon_DaHeng/lib/x64-linux",
+			"destination" : "Halcon_DaHeng/lib/x64-win64",
 			"paths" : 
 			[
-				"/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_DaHeng/bin/libHalcon_DaHeng.so"
+				"D:/Desktop/Source/Halcon_Extension/Halcon_DaHeng/bin/RelWithDebInfo/Halcon_DaHeng.lib"
 			],
 			"targetId" : "Halcon_DaHeng::@6890427a1f51a3e7e1df",
-			"targetIndex" : 0,
+			"targetIndex" : 1,
+			"targetIsImportLibrary" : true,
 			"type" : "target"
 		},
 		{
 			"backtrace" : 4,
 			"component" : "Unspecified",
-			"destination" : "Halcon_DaHeng/lib/x64-linux",
+			"destination" : "Halcon_DaHeng/bin/x64-win64",
 			"paths" : 
 			[
-				"/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_DaHeng/bin/libHalcon_DaHengc.so"
+				"D:/Desktop/Source/Halcon_Extension/Halcon_DaHeng/bin/RelWithDebInfo/Halcon_DaHeng.dll"
+			],
+			"targetId" : "Halcon_DaHeng::@6890427a1f51a3e7e1df",
+			"targetIndex" : 1,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "Halcon_DaHeng/lib/x64-win64",
+			"paths" : 
+			[
+				"D:/Desktop/Source/Halcon_Extension/Halcon_DaHeng/bin/RelWithDebInfo/Halcon_DaHengc.lib"
 			],
 			"targetId" : "Halcon_DaHengcint::@6890427a1f51a3e7e1df",
-			"targetIndex" : 4,
+			"targetIndex" : 5,
+			"targetIsImportLibrary" : true,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "Halcon_DaHeng/bin/x64-win64",
+			"paths" : 
+			[
+				"D:/Desktop/Source/Halcon_Extension/Halcon_DaHeng/bin/RelWithDebInfo/Halcon_DaHengc.dll"
+			],
+			"targetId" : "Halcon_DaHengcint::@6890427a1f51a3e7e1df",
+			"targetIndex" : 5,
 			"type" : "target"
 		},
 		{
@@ -109,13 +140,26 @@
 		{
 			"backtrace" : 4,
 			"component" : "Unspecified",
-			"destination" : "Halcon_DaHeng/lib/x64-linux",
+			"destination" : "Halcon_DaHeng/lib/x64-win64",
 			"paths" : 
 			[
-				"/home/njsc/MVTec/HALCON-24.11-Progress-Steady/Halcon_Extension/Halcon_DaHeng/bin/libHalcon_DaHengcpp.so"
+				"D:/Desktop/Source/Halcon_Extension/Halcon_DaHeng/bin/RelWithDebInfo/Halcon_DaHengcpp.lib"
 			],
 			"targetId" : "Halcon_DaHengcppint::@6890427a1f51a3e7e1df",
-			"targetIndex" : 5,
+			"targetIndex" : 6,
+			"targetIsImportLibrary" : true,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "Halcon_DaHeng/bin/x64-win64",
+			"paths" : 
+			[
+				"D:/Desktop/Source/Halcon_Extension/Halcon_DaHeng/bin/RelWithDebInfo/Halcon_DaHengcpp.dll"
+			],
+			"targetId" : "Halcon_DaHengcppint::@6890427a1f51a3e7e1df",
+			"targetIndex" : 6,
 			"type" : "target"
 		},
 		{

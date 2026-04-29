@@ -9,7 +9,7 @@
 		],
 		"files" : 
 		[
-			"/home/njsc/MVTec/HALCON-24.11-Progress-Steady/examples/cmake/UseHALCON.cmake",
+			"C:/Users/younghowyou/AppData/Roaming/MVTec/HALCON-24.11-Progress-Steady/examples/cmake/UseHALCON.cmake",
 			"CMakeLists.txt"
 		],
 		"nodes" : 
@@ -26,13 +26,24 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 360,
+				"line" : 312,
 				"parent" : 1
 			}
 		]
 	},
-	"id" : "Halcon_DaHeng_html::@6890427a1f51a3e7e1df",
-	"name" : "Halcon_DaHeng_html",
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "Halcon_DaHeng_help_en_US::@6890427a1f51a3e7e1df",
+	"name" : "Halcon_DaHeng_help_en_US",
 	"paths" : 
 	{
 		"build" : ".",
@@ -61,19 +72,19 @@
 		{
 			"backtrace" : 2,
 			"isGenerated" : true,
-			"path" : "build/CMakeFiles/Halcon_DaHeng_html",
+			"path" : "build/CMakeFiles/Halcon_DaHeng_help_en_US",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/CMakeFiles/Halcon_DaHeng_html.rule",
+			"path" : "build/CMakeFiles/6fe46ea22b29fbf81b4c1f2df6e93ad4/Halcon_DaHeng_help_en_US.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/doc/html/reference.rule",
+			"path" : "build/CMakeFiles/2a7f83d872ba44cd5ba31ae2a45de3a7/operators_en_US.idx.rule",
 			"sourceGroupIndex" : 1
 		}
 	],
